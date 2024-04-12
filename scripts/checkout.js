@@ -1,10 +1,11 @@
-import { cart } from '../data/cart.js';
+import { cart, removeFromCart, updateDeliveryOption } from '../data/cart.js';
 import { products } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 import { hello } from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import 'https://unpkg.com/dayjs@1.11.10/esm/locale/fr.js';
 import { deliveryOptions } from '../data/deliveryOptions.js';
+
 
 hello();
 
@@ -83,7 +84,9 @@ function deliveryOptionsHTML(matchingProduct,
 
         html +=
             `
-            <div class="delivery-option">
+            <div class="delivery-option js-delivery-option"
+            data-product-id="${matchingProduct.id}"
+            data-delivery-option-id="${deliveryOption.id}">
                 <input type="radio" 
                 ${isChecked ? 'checked' : '' }
                 class="delivery-option-input" 
@@ -114,4 +117,12 @@ document.querySelectorAll('.js-delete-link')
       container.remove();
   });
   
+});
+
+document.querySelectorAll('.js-delivery-options')
+.forEach((element) => {
+  element.addEventListener('click', () => {
+    const {productId, deliveryOptionId} = element.dataset;
+    updateDeliveryOption(productId, deliveryOptionId);
+  });
 });
