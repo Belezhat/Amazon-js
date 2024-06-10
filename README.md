@@ -19,18 +19,18 @@ Il permet aux utilisateurs de parcourir des produits, ajouter des articles à le
 ## Structure du Projet
 ```
 Amazon-js-main/
-├── amazon.html
-├── backend/
-│ └── products.json
-├── checkout.html
-├── data/
-├── images/
-├── orders.html
-├── scripts/
-├── styles/
-├── tests-jasmine/
-├── tests/
-└── tracking.html
+ ├── amazon.html
+ ├── backend/
+       └── products.json
+ ├── checkout.html
+ ├── data/
+ ├── images/
+ ├── orders.html
+ ├── scripts/
+ ├── styles/
+ ├── tests-jasmine/
+ ├── tests/
+ └── tracking.html
 ```
 
 ## Détails du Backend
